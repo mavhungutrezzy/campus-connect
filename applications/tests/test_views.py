@@ -36,14 +36,14 @@ def bursary_application_service():
 
 @pytest.mark.django_db
 class TestBursaryApplicationListCreateView:
-    # def test_get_bursary_applications_list(
-    #     self, factory, user, bursary_application_service
-    # ):
-    #     url = reverse("bursary-application-list")
-    #     request = factory.get(url, format="json")
-    #     request.user = user
-    #     response = BursaryApplicationListCreateView.as_view()(request)
-    #     assert response.status_code == status.HTTP_200_OK
+    def test_get_bursary_applications_list(
+        self, factory, user, bursary_application_service
+    ):
+        url = reverse("bursary-application-list")
+        request = factory.get(url, format="json")
+        request.user = user
+        response = BursaryApplicationListCreateView.as_view()(request)
+        assert response.status_code == status.HTTP_200_OK
 
     # Happy path test with a valid POST request
     def test_create_bursary_application(
