@@ -3,8 +3,8 @@
 <table>
   <tr>
     <td>
-      <a href="https://github.com/mavhungutrezzy/campus-connect/blob/main/LICENSE">
-        <img src="https://img.shields.io/github/license/mavhungutrezzy/campus-connect" alt="GitHub License">
+      <a href="https://github.com/mavhungutrezzy/campus-connect/actions/workflows/django.yml">
+        <img src="https://github.com/mavhungutrezzy/campus-connect/actions/workflows/django.yml/badge.svg" alt="Django Tests">
       </a>
     </td>
     <td>
