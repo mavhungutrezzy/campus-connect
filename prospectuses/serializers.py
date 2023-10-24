@@ -6,15 +6,7 @@ from .models import Course, Faculty, University
 class UniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = University
-        fields = [
-            "id",
-            "name",
-            "description",
-            "website",
-            "province",
-            "city",
-            "logo_url",
-        ]
+        fields = "__all__"
 
 
 class FacultySerializer(serializers.ModelSerializer):
@@ -39,5 +31,7 @@ class CourseSerializer(serializers.ModelSerializer):
             "careers",
             "admission_point_score",
             "faculty_name",
+            "standardized_test",
+            "standardized_test_type",
             "university_name",
         ]
