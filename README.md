@@ -1,34 +1,9 @@
 # Campus Connect (1.0.0)
+[![Tests](https://github.com/mavhungutrezzy/campus-connect/actions/workflows/django.yml/badge.svg)](https://github.com/mavhungutrezzy/campus-connect/actions/workflows/django.yml)
+[![Django](https://img.shields.io/badge/Django-5.1.2-brightgreen)](href="https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.10-blue)](https://www.python.org)
+[![Django Rest Framework](https://img.shields.io/badge/Django%20REST%20Framework-3.14-orange)](https://www.djangoproject.com/)
 
-<table>
-  <tr>
-    <td>
-      <a href="https://github.com/mavhungutrezzy/campus-connect/actions/workflows/django.yml">
-        <img src="https://github.com/mavhungutrezzy/campus-connect/actions/workflows/django.yml/badge.svg" alt="Django Tests">
-      </a>
-    </td>
-    <td>
-      <a href="https://www.djangoproject.com/">
-        <img src="https://img.shields.io/badge/Django-5.1.2-brightgreen" alt="Django Version">
-      </a>
-    </td>
-    <td>
-      <a href="https://www.python.org/">
-        <img src="https://img.shields.io/badge/Python-3.10-blue" alt="Python Version">
-      </a>
-    </td>
-    <td>
-      <a href="https://www.django-rest-framework.org/">
-        <img src="https://img.shields.io/badge/Django%20REST%20Framework-3.12.4-orange" alt="Django REST Framework">
-      </a>
-    </td>
-    <td>
-      <a href="https://jwt.io/">
-        <img src="https://img.shields.io/badge/JWT-JSON%20Web%20Tokens-9cf" alt="JWT">
-      </a>
-    </td>
-  </tr>
-</table>
 
 The 'Campus Connect' API is a comprehensive system designed to facilitate interactions between students, universities, and bursary providers. It leverages the power of Django REST framework and employs JWT (JSON Web Tokens) for secure authentication. The API provides several features to serve students, including bursaries management, application tracking for bursaries and courses, courses and university information, etc.
 
