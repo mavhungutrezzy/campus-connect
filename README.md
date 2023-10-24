@@ -73,3 +73,36 @@ $ docker-compose exec web python manage.py migrate
 $ docker-compose exec web python manage.py createsuperuser
 # Access the site at http://127.0.0.1:8000
 ```
+
+
+## 🧪 Testing
+
+We use both pytest and Django unittests for testing the 'Campus Connect' API.
+
+### Running pytest
+
+You can run pytest to execute the project's tests by using the following command:
+
+```shell
+(.venv) $ pytest
+```
+
+### Running Django unittests with Coverage
+
+To run Django unittests with coverage, use the following command:
+
+```shell
+(.venv) $ coverage run manage.py test
+```
+
+You can then view the coverage report using:
+
+```shell
+(.venv) $ coverage report
+```
+
+For a more detailed HTML report, use:
+
+```shell
+(.venv) $ coverage html
+```
