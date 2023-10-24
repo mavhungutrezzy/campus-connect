@@ -24,7 +24,10 @@ class BursaryFavoriteListCreateView(generics.ListCreateAPIView):
             favorite, created = BursaryFavorite.objects.get_or_create(**data)
 
             if created:
-                return Response({"detail": "Bursary added to favorites"})
+                return Response(
+                    {"detail": "Bursary added to favorites"},
+                    status=status.HTTP_201_CREATED,
+                )
             favorite.delete()
             return Response({"detail": "Bursary removed from favorites"})
 
