@@ -1,12 +1,6 @@
 from rest_framework import serializers
 
-from .models import ApplicationInformation, Course, Faculty, University
-
-
-class ApplicationInformationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ApplicationInformation
-        exclude = "id"
+from .models import Course, Faculty, University
 
 
 class UniversitySerializer(serializers.ModelSerializer):
