@@ -1,0 +1,14 @@
+repos:
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: main
+    hooks:
+      - id: isort
+        args: ['-m=3', '-tc']
+
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 23.10.0
+    hooks:
+      - id: black
+        language_version: python3.10
+
+exclude: '^$'
