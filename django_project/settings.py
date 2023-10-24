@@ -1,5 +1,5 @@
-from pathlib import Path
 import socket
+from pathlib import Path
 
 from decouple import config
 

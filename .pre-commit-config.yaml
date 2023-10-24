@@ -1,14 +1,28 @@
 repos:
-  - repo: https://github.com/pre-commit/mirrors-isort
-    rev: main
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
     hooks:
-      - id: isort
-        args: ['-m=3', '-tc']
+      - id: check-docstring-first
+      - id: check-json
+      - id: check-yaml
+        args: ["--allow-multiple-documents"]
+      - id: debug-statements
+      - id: fix-encoding-pragma
+        args: ["--remove"]
 
-  - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 23.10.0
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.15.0
+    hooks:
+      - id: pyupgrade
+
+  - repo: https://github.com/psf/black
+    rev: 23.10.1
     hooks:
       - id: black
-        language_version: python3.10
+        args: ["--line-length=99"]
 
-exclude: '^$'
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--gitignore", "--line-length=99", "--profile", "black"]

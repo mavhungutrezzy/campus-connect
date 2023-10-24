@@ -1,5 +1,6 @@
-from django.db import IntegrityError
 import pytest
+from django.db import IntegrityError
+
 from bursaries.models import Bursary
 from bursaries.services.bursary_service import BursaryService
 
@@ -25,7 +26,6 @@ def bursary():
     )
 
 
-# Happy path tests
 @pytest.mark.parametrize(
     "data",
     [
@@ -81,7 +81,6 @@ def test_create_bursary(data):
     assert isinstance(bursary, Bursary)
     assert bursary.bursary_name == data["bursary_name"]
     assert bursary.slug == data["slug"]
-    # Add assertions for other fields as needed
 
 
 @pytest.mark.parametrize(
@@ -130,7 +129,6 @@ def test_delete_bursary(bursary):
         Bursary.objects.get(pk=bursary.id)
 
 
-# Edge cases
 @pytest.mark.django_db
 def test_create_bursary_empty_data():
     # Arrange

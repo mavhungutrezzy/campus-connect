@@ -1,6 +1,7 @@
-from django.test import TestCase
-from django.contrib.auth import get_user_model
 from datetime import date
+
+from django.contrib.auth import get_user_model
+from django.test import TestCase
 
 from applications.models import BursaryApplication, CourseApplication
 

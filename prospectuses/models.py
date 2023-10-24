@@ -18,7 +18,7 @@ class University(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
-        super(University, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
 
 class ApplicationInformation(models.Model):
@@ -46,7 +46,7 @@ class Faculty(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
-        super(Faculty, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
 
 class Course(models.Model):

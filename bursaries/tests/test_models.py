@@ -1,7 +1,7 @@
 import pytest
 from django.utils.text import slugify
 
-from bursaries.models import Bursary 
+from bursaries.models import Bursary
 
 
 @pytest.mark.django_db

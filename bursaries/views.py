@@ -1,16 +1,14 @@
-from rest_framework import generics, status
-from rest_framework.response import Response
-
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
+from rest_framework import generics, status
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.response import Response
+
+from common.permissions import IsOwnerOrReadOnly
 
 from .models import Bursary
 from .serializers import BursarySerializer
 from .services.bursary_service import BursaryService
-
-from rest_framework.authentication import SessionAuthentication
-
-from common.permissions import IsOwnerOrReadOnly
 
 
 @method_decorator(cache_page(60 * 5), name="dispatch")
@@ -26,9 +24,7 @@ class BursaryListCreateView(generics.ListCreateAPIView):
         if serializer.is_valid():
             bursary_data = serializer.validated_data
             bursary = self.bursary_service.create_bursary(bursary_data)
-            return Response(
-                BursarySerializer(bursary).data, status=status.HTTP_201_CREATED
-            )
+            return Response(BursarySerializer(bursary).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 

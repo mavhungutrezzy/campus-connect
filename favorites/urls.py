@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import BursaryFavoriteListCreateView, BursaryFavoriteDetailView
+from .views import BursaryFavoriteDetailView, BursaryFavoriteListCreateView
 
 urlpatterns = [
     path(

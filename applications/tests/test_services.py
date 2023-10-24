@@ -42,7 +42,7 @@ def test_update_bursary_application():
     }
     BursaryApplicationService.update_bursary_application(application, updated_data)
 
-    application.refresh_from_db()  # Refresh the instance from the database to get updated values.
+    application.refresh_from_db()
     assert application.notes == "Updated notes"
 
 
@@ -57,9 +57,7 @@ def test_get_bursary_application_by_id():
     }
     application = BursaryApplicationService.create_bursary_application(data)
 
-    retrieved_application = BursaryApplicationService.get_bursary_application_by_id(
-        application.id
-    )
+    retrieved_application = BursaryApplicationService.get_bursary_application_by_id(application.id)
     assert retrieved_application is not None
     assert retrieved_application.id == application.id
 
@@ -115,7 +113,7 @@ def test_update_course_application():
     }
     CourseApplicationService.update_course_application(application, updated_data)
 
-    application.refresh_from_db()  # Refresh the instance from the database to get updated values.
+    application.refresh_from_db()
     assert application.notes == "Updated notes"
 
 
@@ -130,9 +128,7 @@ def test_get_course_application_by_id():
     }
     application = CourseApplicationService.create_course_application(data)
 
-    retrieved_application = CourseApplicationService.get_course_application_by_id(
-        application.id
-    )
+    retrieved_application = CourseApplicationService.get_course_application_by_id(application.id)
     assert retrieved_application is not None
     assert retrieved_application.id == application.id
 

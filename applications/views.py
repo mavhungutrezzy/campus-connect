@@ -21,18 +21,14 @@ class BursaryApplicationListCreateView(generics.ListCreateAPIView):
     permission_classes = (IsOwnerOrReadOnly,)
 
     def get_queryset(self):
-        return self.bursary_application_service.get_bursary_applications(
-            self.request.user
-        )
+        return self.bursary_application_service.get_bursary_applications(self.request.user)
 
     def post(self, request, *args, **kwargs):
         serializer = BursaryApplicationSerializer(data=request.data)
         if serializer.is_valid():
             bursary_data = serializer.validated_data
-            bursary_application = (
-                self.bursary_application_service.create_bursary_application(
-                    bursary_data
-                )
+            bursary_application = self.bursary_application_service.create_bursary_application(
+                bursary_data
             )
             return Response(
                 BursaryApplicationSerializer(bursary_application).data,
@@ -54,9 +50,7 @@ class BursaryApplicationDetailView(generics.RetrieveUpdateDestroyAPIView):
         serializer = BursaryApplicationSerializer(instance, data=request.data)
         if serializer.is_valid():
             bursary_data = serializer.validated_data
-            self.bursary_application_service.update_bursary_application(
-                instance, bursary_data
-            )
+            self.bursary_application_service.update_bursary_application(instance, bursary_data)
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -74,16 +68,14 @@ class CourseApplicationListCreateView(generics.ListCreateAPIView):
     permission_classes = (IsOwnerOrReadOnly,)
 
     def get_queryset(self):
-        return self.course_application_service.get_course_applications(
-            self.request.user
-        )
+        return self.course_application_service.get_course_applications(self.request.user)
 
     def post(self, request, *args, **kwargs):
         serializer = CourseApplicationSerializer(data=request.data)
         if serializer.is_valid():
             course_data = serializer.validated_data
-            course_application = (
-                self.course_application_service.create_course_application(course_data)
+            course_application = self.course_application_service.create_course_application(
+                course_data
             )
             return Response(
                 CourseApplicationSerializer(course_application).data,
@@ -104,9 +96,7 @@ class CourseApplicationDetailView(generics.RetrieveUpdateDestroyAPIView):
         serializer = CourseApplicationSerializer(instance, data=request.data)
         if serializer.is_valid():
             course_data = serializer.validated_data
-            self.course_application_service.update_course_application(
-                instance, course_data
-            )
+            self.course_application_service.update_course_application(instance, course_data)
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

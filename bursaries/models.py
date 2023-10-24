@@ -27,4 +27,4 @@ class Bursary(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.bursary_name)
-        super(Bursary, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)

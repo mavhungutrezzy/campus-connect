@@ -1,7 +1,6 @@
 from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView
 
-
 urlpatterns = [
     path("", include("bursaries.urls")),
     path("favorites/", include("favorites.urls")),
