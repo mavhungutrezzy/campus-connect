@@ -20,6 +20,9 @@ RUN set -ex && \
 # Copy local project
 COPY . /code/
 
+RUN python3 manage.py migrate
+
+
 # Expose port 8000
 EXPOSE 8000
 
