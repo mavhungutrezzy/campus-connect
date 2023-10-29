@@ -4,14 +4,10 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIRequestFactory
 
-from applications.models import BursaryApplication, CourseApplication
-from applications.serializers import BursaryApplicationSerializer, CourseApplicationSerializer
+from applications.models import BursaryApplication
+from applications.serializers import BursaryApplicationSerializer
 from applications.services.bursary_application_service import BursaryApplicationService
-from applications.views import (
-    BursaryApplicationDetailView,
-    BursaryApplicationListCreateView,
-    CourseApplicationDetailView,
-)
+from applications.views import BursaryApplicationListCreateView
 
 User = get_user_model()
 
@@ -41,7 +37,6 @@ class TestBursaryApplicationListCreateView:
         assert response.status_code == status.HTTP_200_OK
 
     def test_create_bursary_application(self, factory, user, bursary_application_service):
-        # Arrange
         url = reverse("bursary-application-list")
         data = {
             "user": user.id,
@@ -52,10 +47,8 @@ class TestBursaryApplicationListCreateView:
         request = factory.post(url, data, format="json")
         request.user = user
 
-        # Act
         response = BursaryApplicationListCreateView.as_view()(request)
 
-        # Assert
         assert response.status_code == status.HTTP_201_CREATED
         assert BursaryApplication.objects.count() == 1
         assert (
@@ -63,21 +56,17 @@ class TestBursaryApplicationListCreateView:
         )
 
     def test_create_bursary_application_empty_request(self, factory, user):
-        # Arrange
         url = reverse("bursary-application-list")
         data = {}
         request = factory.post(url, data, format="json")
         request.user = user
 
-        # Act
         response = BursaryApplicationListCreateView.as_view()(request)
 
-        # Assert
         assert response.status_code == status.HTTP_400_BAD_REQUEST
         assert BursaryApplication.objects.count() == 0
 
     def test_create_bursary_application_invalid_request(self, factory, user):
-        # Arrange
         url = reverse("bursary-application-list")
 
         data = {
@@ -88,9 +77,7 @@ class TestBursaryApplicationListCreateView:
         request = factory.post(url, data, format="json")
         request.user = user
 
-        # Act
         response = BursaryApplicationListCreateView.as_view()(request)
 
-        # Assert
         assert response.status_code == status.HTTP_400_BAD_REQUEST
         assert BursaryApplication.objects.count() == 0

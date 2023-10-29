@@ -72,12 +72,8 @@ def bursary():
 )
 @pytest.mark.django_db
 def test_create_bursary(data):
-    # Arrange
-
-    # Act
     bursary = BursaryService.create_bursary(data)
 
-    # Assert
     assert isinstance(bursary, Bursary)
     assert bursary.bursary_name == data["bursary_name"]
     assert bursary.slug == data["slug"]
@@ -93,12 +89,8 @@ def test_create_bursary(data):
 )
 @pytest.mark.django_db
 def test_update_bursary(bursary, data):
-    # Arrange
-
-    # Act
     BursaryService.update_bursary(bursary, data)
 
-    # Assert
     bursary.refresh_from_db()
     assert bursary.bursary_name == data["bursary_name"]
     assert bursary.provider == data["provider"]
@@ -107,69 +99,51 @@ def test_update_bursary(bursary, data):
 @pytest.mark.parametrize("bursary_id", [1], ids=["get_bursary_by_id_1"])
 @pytest.mark.django_db
 def test_get_bursary_by_id(bursary, bursary_id):
-    # Arrange
-
-    # Act
     retrieved_bursary = BursaryService.get_bursary_by_id(bursary_id)
 
-    # Assert
     assert isinstance(retrieved_bursary, Bursary)
     assert retrieved_bursary.id == bursary_id
 
 
 @pytest.mark.django_db
 def test_delete_bursary(bursary):
-    # Arrange
-
-    # Act
     BursaryService.delete_bursary(bursary)
 
-    # Assert
     with pytest.raises(Bursary.DoesNotExist):
         Bursary.objects.get(pk=bursary.id)
 
 
 @pytest.mark.django_db
 def test_create_bursary_empty_data():
-    # Arrange
     data = {}
 
-    # Act
     try:
         bursary = BursaryService.create_bursary(data)
     except IntegrityError:
         bursary = None
 
-    # Assert
     assert bursary is None
 
 
 @pytest.mark.django_db
 def test_get_bursary_by_id_invalid_id():
-    # Arrange
     bursary_id = 999
 
-    # Act / Assert
     with pytest.raises(Bursary.DoesNotExist):
         BursaryService.get_bursary_by_id(bursary_id)
 
 
 @pytest.mark.django_db
-# Error cases
 def test_create_bursary_missing_data():
-    # Arrange
     data = {"bursary_name": "Bursary"}
 
-    # Act / Assert
     with pytest.raises(Exception):
         BursaryService.create_bursary(data)
 
 
 @pytest.mark.django_db
 def test_delete_bursary_invalid_bursary():
-    # Arrange
     bursary = Bursary(bursary_name="Invalid Bursary")
 
-    # Act / Assert
     with pytest.raises(Exception):
         BursaryService.delete_bursary(bursary)

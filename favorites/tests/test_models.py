@@ -12,7 +12,6 @@ User = get_user_model()
 class BursaryFavoriteModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
         cls.user = User.objects.create_user(username="testuser", password="testpassword")
         cls.bursary = Bursary.objects.create(
             bursary_name="Test Bursary",
