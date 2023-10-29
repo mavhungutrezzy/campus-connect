@@ -1,3 +1,4 @@
+# Pull base image
 FROM python:3.11-slim-buster
 
 # Set environment variables
@@ -14,7 +15,6 @@ COPY requirements.txt /tmp/requirements.txt
 RUN set -ex && \
     pip install --upgrade pip && \
     pip install -r /tmp/requirements.txt && \
-    pip install gunicorn && \
     rm -rf /root/.cache/
 
 # Copy local project
