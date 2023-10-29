@@ -7,6 +7,13 @@
 
 The 'Campus Connect' API is a comprehensive system designed to facilitate interactions between students, universities, and bursary providers. It leverages the power of Django REST framework and employs JWT (JSON Web Tokens) for secure authentication. The API provides several features to serve students, including bursaries management, application tracking for bursaries and courses, courses and university information, etc.
 
+## 📖 API Documentation
+
+The API documentation is available to help you understand how to use the 'Campus Connect' API. You can access the API documentation by visiting the following URL:
+
+[API Documentation](https://campusconnect-yph529vr.b4a.run/api/v1/docs/)
+
+
 ## 📖 Installation
 
 This project can be installed via Pip or Docker. To get started, clone the repository to your local computer and navigate to the project directory.
