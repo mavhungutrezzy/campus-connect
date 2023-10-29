@@ -1,6 +1,7 @@
 import socket
 from pathlib import Path
 
+import sentry_sdk
 from decouple import config
 
 from .constants import API_DESCRIPTION
@@ -249,3 +250,11 @@ CACHES = {
 }
 
 CACHE_TIMEOUT = 300
+
+
+if not DEBUG:
+    sentry_sdk.init(
+        dsn=config("SENTRY_SDK_DSN"),
+        traces_sample_rate=1.0,
+        profiles_sample_rate=1.0,
+    )
