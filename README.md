@@ -9,9 +9,7 @@ The 'Campus Connect' API is a comprehensive system designed to facilitate intera
 
 ## 📖 API Documentation
 
-The API documentation is available to help you understand how to use the 'Campus Connect' API. You can access the API documentation by visiting the following URL:
-
-[API Documentation](https://campusconnect-yph529vr.b4a.run/api/v1/docs/)
+The API documentation is available to help you understand how to use the 'Campus Connect' API. You can access the API documentation by visiting the following URL: [Docs](https://campusconnect-yph529vr.b4a.run/api/v1/docs/)
 
 
 ## 📖 Installation
